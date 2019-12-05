@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -38,6 +39,38 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+player = Player('1', room['outside'])
+
+move_options = ['n', 's', 'e', 'w', 'q'] 
+def get_move():
+    mv = input('Where would u like to go? -> Type n, s, e, or w: ')
+    if mv not in move_options:
+        print('Invalid direction')
+        return player.location
+    else:
+        if mv == 'n' and hasattr(player.location, 'n_to'):
+            next_room = player.location.n_to
+            #print(mv)
+            return(next_room)
+        elif mv == 's' and hasattr(player.location, 's_to'):
+            next_room = player.location.s_to
+            #print(mv)
+            return(next_room)
+        elif mv == 'e' and hasattr(player.location, 'e_to'):
+            next_room = player.location.e_to
+            #print(mv)
+            return(next_room)
+        elif mv == 'w' and hasattr(player.location, 'w_to'):
+            next_room = player.location.w_to
+            #print(mv)
+            return(next_room)
+        elif mv == 'q':
+            print('Deuces!')
+            exit()
+        else:
+            print("Can't go that way")
+            return player.location
+
 
 # Write a loop that:
 #
@@ -49,3 +82,15 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+while True: 
+    game_options = ['m', 'q']
+    game_input = input(" -> Enter 'm' to move to a different room, or 'q' to quit: ")
+
+    # if game_input not in game_options:
+    #     print('Invalid Option.. Try again')
+    # else: 
+    if game_input == 'm':
+        player.make_move(get_move())
+    elif game_input == 'q':
+        break
