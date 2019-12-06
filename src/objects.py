@@ -1,4 +1,5 @@
 from room import Room
+from item import Item
 
 
 room = {
@@ -22,17 +23,13 @@ earlier adventurers. The only exit is to the south."""),
 }
 
 
-# items = {
-#     'candlestick':
-#     'knife': Item
-#     'rope':
-#     'dumbell':
-#     'trophy':
-#     'poison':
-#     'pistol':
+items = {
+    'candlestick': Item('candlestick', 'you know for light') 
+    'knife': Item('knife', 'un cuchillo')   
+    'rope': Item('rope', "a hangman's noose") 
+    'dumbell': Item('dumbell', 'the biggest one ') 
+    'trophy': Item('trophy', 'cause we tha best') 
+    'poison': Item('poison', 'that ill ish') 
+    'pistol': Item('pistol', '1911') 
+}
 
-# }
-
-# The candlestick, knife and rope remain, but now weapons 
-# choices include a dumbbell, trophy or poison. The lead pipe,
-# revolver and wrench are no longer part of the game.Aug 14, 2008
